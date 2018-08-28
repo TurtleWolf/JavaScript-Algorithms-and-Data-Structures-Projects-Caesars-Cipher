@@ -3,11 +3,9 @@
 
 ```
 function rot13(str) { // LBH QVQ VG!
-  
-  //str = the value of the letters are shifted by 13 places
-  
   //Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on.
-  
+  //str = the value of the letters are shifted by 13 places
+  console.log(str);
   return str;
 }
 
