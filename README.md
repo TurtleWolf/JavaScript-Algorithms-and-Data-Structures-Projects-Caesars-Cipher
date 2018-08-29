@@ -16,7 +16,7 @@ while(i < ourArray.length) {
  
   console.log(ourArray[i]);
 
-//want to change to each letter
+//I want to print each letter of the array, perhaps .splice
 
 i++;
 }
