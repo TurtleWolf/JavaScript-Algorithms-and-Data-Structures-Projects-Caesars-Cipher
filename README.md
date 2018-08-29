@@ -3,15 +3,22 @@
 
 ```
 function rot13(str) { // LBH QVQ VG!
-  //Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on.
-  //str = the value of the letters are shifted by 13 places
+
+//Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on.
+
+//str = the value of the letters are shifted by 13 places
+
 var ourArray = [str];
+
 var i = 0;
+
 while(i < ourArray.length) {
  
   console.log(ourArray[i]);
-  //want to change to each letter
-  i++;
+
+//want to change to each letter
+
+i++;
 }
   return str;
 }
