@@ -1,23 +1,38 @@
-function rot13(str) { // LBH QVQ VG!
-let rts = str.split("")
-var ourArray = [rts];
-var i = 0;
+function rot13(str) { // should decode input by adding 13 characters to it
+let rejoinedWord = [];// declare an empty array to house returned word
+let ourArray = str.split("");//split input charcters into an array 
+var i = 0;// incrementor for while loop
 while(i < ourArray.length) {
-  //I want to print each letter of the array, perhaps .splice
+  //I want to print each letter of the array
   let ourCurrentCharacter = ourArray[i];
   console.log(ourCurrentCharacter);
-  // if ourCurrentCharacter == a letter (regex?)
-  // ourCurrentCharacter.charCodeAt(); //to convert the English character to ASCII.
-  //ourCurrentCharacter = the value of the Char Code ++13
-  // ourCurrentCharacter.fromCharCode(); //to convert ASCII to English character.
+  // if ourCurrentCharacter == a capital letter (regex?)
+  let regex = /[A-Z]/;
+if (ourCurrentCharacter.match(regex)){
+  //to convert the English character to ASCII.
+  let thisCharacter = ourCurrentCharacter.charCodeAt(); 
+//  If the ascii code is less than 78, it’ll get out of range when subtracted by 13
+//  so we’ll add 26 (number of letters in alphabet) so that after A it’ll go back to Z. e.g. M(77)
+//  77-13 = 64(Not an English alphabet) +26 = 90  Z(90).
+  if (thisCharacter < 78) {
+    thisCharacter = thisCharacter +13;
+    } else {thisCharacter = thisCharacter -13;}
+  // convert ASCII to English
+  thisCharacter = String.fromCharCode(thisCharacter);
+  rejoinedWord.push(thisCharacter);
+  console.log(rejoinedWord);}//end of if regex /A-Z/
+//if ourCurrentCharacter cleared regex filter, add it back to the string
+else { rejoinedWord.push(ourCurrentCharacter); };
   i++;//iterate array in while loop
-}
-  let joinedArray = ourArray.join("");
-  console.log(joinedArray);
-  return joinedArray;
-}
-// Change the inputs below to test
-rot13("SERR PBQR PNZC"); //should decode to FREE CODE CAMP
-rot13("SERR CVMMN!"); // should decode to FREE PIZZA!
-rot13("SERR YBIR?"); // should decode to FREE LOVE?
-rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT."); // should decode to THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
+  }//end of while loop
+
+  let joinedArray = rejoinedWord.join('');//rejoined split array
+  console.log(joinedArray);//sneak peak print out of what's returned
+  return joinedArray;//end of Rot13 
+}// Ceasar's Cipher
+
+rot13("LBH QVQ VG!"); //should decode to YOU DID IT!
+//rot13("SERR PBQR PNZC"); //should decode to FREE CODE CAMP
+//rot13("SERR CVMMN!"); // should decode to FREE PIZZA!
+//rot13("SERR YBIR?"); // should decode to FREE LOVE?
+//rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT."); //THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
